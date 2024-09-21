@@ -1,0 +1,837 @@
+ <html>
+<head>
+
+  <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+ 
+body {
+    background-color: #333;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+  }
+
+
+.header {
+  text-align: center;
+  padding: 1px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.5);
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  font-family: 'Arial', sans-serif;
+  font-size: 36px;
+  color: #333;
+  letter-spacing: 1.5px;
+}
+.header h3 {
+  font-family: 'Arial', sans-serif;
+  font-size: 20px;
+  color: #333;
+  letter-spacing: 1.5px;
+}
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        td, th {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        input[type="text"] {
+            width: 90%;
+            padding: 10px;
+            border: 1px solid #444;
+            background-color: #444;
+            color: #ddd;
+        }
+  
+  input::placeholder, textarea::placeholder {
+    color: #bbb;
+  }
+
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: #bbb;
+  }
+
+        button {
+    width: 100%;
+    padding: 15px;
+    background-color: #ddd;
+    color: black;
+    border: 1px solid #333;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 50px; /* Hace el borde circular */
+}
+
+button:hover {
+    background-color: #555;
+}
+
+
+        canvas {
+            width: 100% !important;
+            height: auto !important;
+            background-color: #fff;
+        }
+
+       
+
+            input[type="text"] {
+                font-size: 14px;
+            }
+
+            button {
+                font-size: 16px;
+            }
+        }
+         
+   
+   
+   
+  
+  
+ .cont {
+    display: flex;
+    flex-direction: column; /* Alinea los elementos en columna */
+    align-items: center; /* Centra los elementos horizontalmente */
+    background-color: transparent;
+    border-radius: 10px;
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 30px;
+    padding: 20px;
+    max-width: 100%; /* Se asegura que el contenedor no exceda su ancho máximo */
+    box-sizing: border-box;
+}
+
+.cont p {
+    text-align: left; /* Alinea el texto a la izquierda */
+    width: 100%; /* Asegura que el texto ocupe todo el ancho */
+    margin: 0 0 10px 0; /* Espacio entre el párrafo y el input */
+}
+
+/* Estilo para el contenedor de la tabla */
+.table-container {
+    width: 100%; /* Asegura que el contenedor de la tabla ocupe el ancho completo */
+    overflow-x: auto; /* Habilita el desplazamiento horizontal si la tabla es muy ancha */
+    margin-top: 20px; /* Espacio superior entre otros elementos y la tabla */
+}
+
+/* Asegura que la tabla no se desborde del contenedor */
+#historialTabla {
+    width: 100%; /* Ajusta la tabla para que ocupe el ancho completo del contenedor */
+    border-collapse: collapse; /* Evita el espaciado entre bordes de las celdas */
+}
+
+#historialTabla th, #historialTabla td {
+    padding: 10px;
+    text-align: center; /* Alinea el texto al centro */
+    border: 1px solid #ccc; /* Define bordes para las celdas */
+}
+
+#historialTabla th {
+    background-color: #333; /* Color de fondo para los encabezados */
+}
+
+    .separator {
+    height: 2px;
+    background-color: #ddd;
+    margin: 20px 0; /* Espaciado vertical */
+    width: 100%; /* Se asegura de que ocupe todo el ancho del contenedor */
+}
+
+
+/* Personalización del scrollbar */
+.table-container::-webkit-scrollbar {
+    height: 10px; /* Altura de la barra de desplazamiento horizontal */
+}
+
+.table-container::-webkit-scrollbar-track {
+    background-color: #ddd; /* Color de fondo del track (pista) */
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background-color: #333; /* Color del pulgar (scroll bar) */
+    border-radius: 10px; /* Bordes redondeados para el pulgar */
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Color más claro cuando el pulgar es hover */
+}
+
+
+ .menu {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #f0f0f0;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 50% 45% 0 0;
+            border: 1px solid #333;
+        }
+
+        .menu-item, .menu-item2 {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer; /* Cambia el cursor al pasar sobre el elemento */
+        }
+
+        .circle, .circle2, .circle3 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #333;
+            border: 2px solid #333;
+            font-size: 24px;
+            margin-bottom: 5px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .circle:hover, .circle2:hover, .circle3:hover {
+            transform: scale(1.1);
+            background-color: #fff;
+        }
+
+        .circle2 {
+            position: relative;
+            top: -20px;
+        }
+
+        .circle3 {
+            position: relative;
+            top: -30px;
+        }
+
+        .plus {
+            position: relative;
+        }
+
+        .triangle {
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 30px solid #ddd;
+            margin-bottom: 5px;
+        }
+
+        .plus span {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .menu-item span, .menu-item2 span {
+            font-size: 20px; /* Aumenta el tamaño de la fuente */
+            font-weight: bold; /* Hace el texto más grueso */
+            color: #333; /* Color del texto */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente moderna */
+            margin-top: 5px; /* Espacio entre el icono y el texto */
+            text-align: center; /* Centra el texto dentro del contenedor */
+        }
+
+        /* Estilo del modal */
+        .modal {
+            display: none; /* Oculto por defecto */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+            text-align: center;
+            position: relative;
+        }
+
+        .modal-content h2 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .modal-content p {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        .modal-content button {
+            margin: 5px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .modal-content button:hover {
+            background-color: #555;
+        }
+
+        .modal-content .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+      </style>
+</head>
+<body>
+  
+   <div class="cont" >
+  <div class="header">
+  <p><h3>Arreglo de 10,000,000 elementos para las busquedas</h3></p>
+</div>
+   
+      <button onclick="ejecucion();" id="boton">
+        Ejecutar programa
+    </button>
+    <br><br>
+
+
+    <table border="1">
+        <tr>
+            <td>Busqueda lineal</td>
+        </tr>
+        <tr>
+            <td id="lineal"></td>
+        </tr>
+        <tr>
+            <td id="lineal"></td>
+        </tr>
+        <tr>
+            <td id="lineal"></td>
+        </tr>
+        <tr>
+            <td id="lineal"></td>
+        </tr>
+        <tr>
+            <td id="lineal"></td>
+        </tr>
+        <tr>
+            <td id="lineal"></td>
+        </tr>
+        <tr>
+            <td id="lineal"></td>
+        </tr>
+        <tr>
+            <td id="lineal"></td>
+        </tr>
+        <tr>
+            <td id="lineal"></td>
+        </tr>
+        <tr>
+            <td id="lineal"></td>
+        </tr>
+    </table>
+
+    Numero a encontrar: 
+    <input type="text" name="numEncontrar" id="numEncontrar" readonly>
+    <br>
+    Posicion encontrado<strong>(si muestra -1 no encontro el elemento)</strong>
+    <input type="text" name="posicion" id="posicion" readonly>
+    <br>
+    Tiempo de ejecucion:
+    <input type="text" name="tiempo" id="tiempo" readonly>
+    <br><br><br>
+
+    <!--    Busqueda binaria iterativa  -->
+    <table border="1">
+        <tr>
+            <td>Busqueda binaria iterativa</td>
+        </tr>
+        <tr>
+            <td id="iterativa"></td>
+        </tr>
+        <tr>
+            <td id="iterativa"></td>
+        </tr>
+        <tr>
+            <td id="iterativa"></td>
+        </tr>
+        <tr>
+            <td id="iterativa"></td>
+        </tr>
+        <tr>
+            <td id="iterativa"></td>
+        </tr>
+        <tr>
+            <td id="iterativa"></td>
+        </tr>
+        <tr>
+            <td id="iterativa"></td>
+        </tr>
+        <tr>
+            <td id="iterativa"></td>
+        </tr>
+        <tr>
+            <td id="iterativa"></td>
+        </tr>
+        <tr>
+            <td id="iterativa"></td>
+        </tr>
+    </table>
+
+    Numero a encontrar: 
+    <input type="text" name="numEncontrar" id="numEncontrar" readonly>
+    <br>
+    Posicion encontrado<strong>(si muestra -1 no encontro el elemento)</strong>
+    <input type="text" name="posicion" id="posicion" readonly>
+    <br>
+    Tiempo de ejecucion:
+    <input type="text" name="tiempo" id="tiempo" readonly>
+    <br><br><br>
+
+    <!--    Busqueda binaria recursiva  -->
+    <table border="1">
+        <tr>
+            <td>Busqueda binaria recursiva</td>
+        </tr>
+        <tr>
+            <td id="recursiva"></td>
+        </tr>
+        <tr>
+            <td id="recursiva"></td>
+        </tr>
+        <tr>
+            <td id="recursiva"></td>
+        </tr>
+        <tr>
+            <td id="recursiva"></td>
+        </tr>
+        <tr>
+            <td id="recursiva"></td>
+        </tr>
+        <tr>
+            <td id="recursiva"></td>
+        </tr>
+        <tr>
+            <td id="recursiva"></td>
+        </tr>
+        <tr>
+            <td id="recursiva"></td>
+        </tr>
+        <tr>
+            <td id="recursiva"></td>
+        </tr>
+        <tr>
+            <td id="recursiva"></td>
+        </tr>
+    </table>
+
+    Numero a encontrar: 
+    <input type="text" name="numEncontrar" id="numEncontrar" readonly>
+    <br>
+    Posicion encontrado<strong>(si muestra -1 no encontro el elemento)</strong>
+    <input type="text" name="posicion" id="posicion" readonly>
+    <br>
+    Tiempo de ejecucion:
+    <input type="text" name="tiempo" id="tiempo" readonly>
+    <br><br>
+  <div class="separator"></div>
+
+
+  <h1>Deliza para ver el contenido</h1>
+    <div class="table-container">
+<table id="historialTabla" border="1">
+    <tr>
+        <th>ID</th>
+        <th>Numero a encontrar</th>
+        <th>Posición encontrada</th>
+        <th>Tiempo de ejecución</th>
+        <th>Fecha</th>
+        <th>Eliminar</th>
+    </tr>
+</table>
+</div>
+    <!--    grafica de datos    -->
+    <canvas id="graficaBarras" width="200" height="200"></canvas>
+</div>
+   
+   
+   
+   
+   
+
+ <div class="menu">
+        <div class="menu-item">
+            <div class="circle">
+                <i class="fas fa-home"></i>
+            </div>
+            <span>Inicio</span>
+        </div>
+        <div class="menu-item2">
+            <div class="circle2">
+                <i class="fas fa-circle"></i>
+            </div>
+            <span>Tools</span>
+        </div>
+        <div class="menu-item" id="openModal">
+            <div class="circle3">
+                <div class="triangle"></div>
+            </div>
+            <span>top</span>
+        </div>
+        <div class="menu-item2">
+            <div class="circle2">
+                <i class="fas fa-comments"></i>
+            </div>
+            <span>Chats</span>
+        </div>
+        <div class="menu-item">
+            <div class="circle">
+                <i class="fas fa-user"></i>
+            </div>
+            <span>Perfil</span>
+        </div>
+    </div>
+
+  
+
+   <div class="rectangulo2">
+    <ol id="listaEnlazada"></ol>
+   <div class="cuadro-informacion"></div>
+  </div>
+  
+
+<br></br>
+<br></br>
+      <script>
+// Función para guardar datos en la API
+function guardarEnAPI(conteo, posicion, tiempo) {
+    const url = "https://66ed0daf380821644cdb2114.mockapi.io/api/v1/Axel/folder2";
+
+    const data = {
+        conteo: conteo,
+        posicion: posicion,
+        tiempo: tiempo,
+        fecha: new Date().toLocaleString() // Agregar fecha al guardar
+    };
+
+    // Realizar la solicitud POST
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log("Datos guardados en la API:", data);
+        agregarFilaATabla(data); // Agregar la nueva fila a la tabla
+    })
+    .catch(error => {
+        console.error("Error al guardar en la API:", error);
+    });
+}
+
+// Función para cargar los datos desde la API al iniciar la página
+function cargarDatosDeAPI() {
+    const url = "https://66ed0daf380821644cdb2114.mockapi.io/api/v1/Axel/folder2";
+
+    // Realizar la solicitud GET para obtener los datos
+    fetch(url)
+    .then(response => response.json())
+    .then(datos => {
+        datos.forEach(data => {
+            agregarFilaATabla(data); // Agregar cada dato a la tabla
+        });
+    })
+    .catch(error => {
+        console.error("Error al cargar los datos de la API:", error);
+    });
+}
+
+// Función para agregar una fila a la tabla
+function agregarFilaATabla(data) {
+    const tabla = document.getElementById("historialTabla");
+
+    // Crear una nueva fila
+    const fila = tabla.insertRow();
+
+    // Agregar las celdas con los datos
+    fila.insertCell(0).innerText = data.id;
+    fila.insertCell(1).innerText = data.conteo;
+    fila.insertCell(2).innerText = data.posicion;
+    fila.insertCell(3).innerText = data.tiempo;
+    fila.insertCell(4).innerText = data.fecha;
+
+    // Agregar el botón de eliminar
+    const celdaEliminar = fila.insertCell(5);
+    const botonEliminar = document.createElement("button");
+    botonEliminar.innerText = "Eliminar";
+    botonEliminar.onclick = function () {
+        eliminarFilaDeAPI(data.id, fila); // Eliminar de la API y de la tabla
+    };
+    celdaEliminar.appendChild(botonEliminar);
+}
+
+// Función para eliminar una fila de la API y de la tabla
+function eliminarFilaDeAPI(id, fila) {
+    const url = `https://66ed0daf380821644cdb2114.mockapi.io/api/v1/Axel/folder2/${id}`;
+
+    // Realizar la solicitud DELETE
+    fetch(url, {
+        method: 'DELETE'
+    })
+    .then(() => {
+        fila.remove(); // Eliminar la fila de la tabla
+        console.log(`Fila con ID ${id} eliminada`);
+    })
+    .catch(error => {
+        console.error("Error al eliminar el dato de la API:", error);
+    });
+}
+
+// Cargar los datos cuando se carga la página
+window.onload = cargarDatosDeAPI;
+
+        
+        
+
+
+
+
+
+// cantidad de elementos a buscar
+var cantidadElementos = 10000000;
+let historial = {
+    lineal: [],
+    iterativa: [],
+    recursiva: []
+};
+
+
+let idCounter = 0; // Contador para los IDs de las filas
+
+function ejecucion() {
+    console.log("iniciar");
+    const boton = document.getElementById('boton');
+    boton.disabled = true;
+
+    // Obtener elementos del DOM
+    var valorLineal = document.querySelectorAll('[id=lineal]');
+    var valorIterativo = document.querySelectorAll('[id=iterativa]');
+    var valorRecursivo = document.querySelectorAll('[id=recursiva]');
+    var tiempoInput = document.querySelectorAll('[id=tiempo]');
+    var numEcontrar = document.querySelectorAll('[id=numEncontrar]');
+    var posicion = document.querySelectorAll('[id=posicion]');
+
+    // Definir arreglos y llenado de los mismos
+    var arreglo1 = new Array(cantidadElementos);
+    var arreglo2 = new Array(cantidadElementos);
+    var arreglo3 = new Array(cantidadElementos);
+    for (let index = 0; index < cantidadElementos; index++) {
+        arreglo1[index] = obtenerNumeroAleatorio();
+        arreglo2[index] = obtenerNumeroAleatorio();
+        arreglo3[index] = obtenerNumeroAleatorio();
+    }
+
+    // Ordenar arreglo2 y arreglo3
+    arreglo2.sort((a, b) => a - b);
+    arreglo3.sort((a, b) => a - b);
+
+    // Obtener los números aleatorios para la búsqueda
+    var elemento = new Array(3);
+    for (let index = 0; index < 3; index++) {
+        elemento[index] = obtenerNumeroAleatorio();
+    }
+
+    // Ejecución de cada búsqueda y obtención de índice y tiempo de ejecución
+    var elementoBuscado = new Array(3);
+    var tiempo = new Array(3);
+
+    // Búsqueda lineal
+    var inicioTiempo = performance.now();
+    elementoBuscado[0] = busquedaLineal(arreglo1, elemento[0]);
+    var finalTiempo = performance.now();
+    tiempo[0] = finalTiempo - inicioTiempo;
+
+    // Búsqueda binaria iterativa
+    inicioTiempo = performance.now();
+    elementoBuscado[1] = busquedaBinariaIterativa(arreglo2, elemento[1]);
+    finalTiempo = performance.now();
+    tiempo[1] = finalTiempo - inicioTiempo;
+
+    // Búsqueda binaria recursiva
+    inicioTiempo = performance.now();
+    elementoBuscado[2] = busquedaBinariaRecursiva(arreglo3, elemento[2]);
+    finalTiempo = performance.now();
+    tiempo[2] = finalTiempo - inicioTiempo;
+
+    // Mostrar en pantalla los resultados
+    for (let index = 0; index < 10; index++) {
+        valorLineal[index].innerHTML = arreglo1[index];
+        valorIterativo[index].innerHTML = arreglo2[index];
+        valorRecursivo[index].innerHTML = arreglo3[index];
+    }
+
+    for (let index = 0; index < 3; index++) {
+        tiempoInput[index].value = tiempo[index];
+        numEcontrar[index].value = elemento[index];
+        posicion[index].value = elementoBuscado[index];
+    }
+
+    // Guardar los resultados en la API
+    guardarEnAPI(elemento[0], elementoBuscado[0], tiempo[0]);
+    guardarEnAPI(elemento[1], elementoBuscado[1], tiempo[1]);
+    guardarEnAPI(elemento[2], elementoBuscado[2], tiempo[2]);
+
+    // Acumular resultados en el historial
+    historial.lineal.push(tiempo[0]);
+    historial.iterativa.push(tiempo[1]);
+    historial.recursiva.push(tiempo[2]);
+
+    // Añadir a la tabla de historial
+    const tabla = document.getElementById('historialTabla');
+    for (let i = 0; i < 3; i++) {
+        idCounter++;
+        const row = tabla.insertRow(-1);
+        row.insertCell(0).innerText = idCounter;
+        row.insertCell(1).innerText = elemento[i];
+        row.insertCell(2).innerText = elementoBuscado[i];
+        row.insertCell(3).innerText = tiempo[i].toFixed(2) + ' ms';
+        row.insertCell(4).innerText = new Date().toLocaleString();
+        
+        // Botón de eliminar
+        const btnEliminar = document.createElement('button');
+        btnEliminar.innerText = 'Eliminar';
+        btnEliminar.onclick = function() {
+            tabla.deleteRow(row.rowIndex);
+        };
+        row.insertCell(5).appendChild(btnEliminar);
+    }
+
+    // Graficar tiempos de ejecución
+    var ctx = document.getElementById('graficaBarras').getContext('2d');
+    const existingChart = Chart.getChart('graficaBarras');
+    if (existingChart) {
+        existingChart.destroy();
+    }
+
+    var data = {
+        labels: [...Array(historial.lineal.length).keys()],
+        datasets: [
+            {
+                label: 'Búsqueda Lineal',
+                data: historial.lineal,
+                borderColor: 'blue',
+                borderWidth: 2,
+                fill: false
+            },
+            {
+                label: 'Búsqueda Binaria Iterativa',
+                data: historial.iterativa,
+                borderColor: 'green',
+                borderWidth: 2,
+                fill: false
+            },
+            {
+                label: 'Búsqueda Binaria Recursiva',
+                data: historial.recursiva,
+                borderColor: 'red',
+                borderWidth: 2,
+                fill: false
+            }
+        ]
+    };
+
+    var miGrafico = new Chart(ctx, {
+        type: 'line',
+        data: data
+    });
+
+    boton.disabled = false;
+    console.log("finalizado");
+}
+
+
+
+function obtenerNumeroAleatorio() {
+    const numeroAleatorioDecimal = Math.random();
+    const numeroAleatorio = Math.floor(numeroAleatorioDecimal * cantidadElementos) + 1;
+    return numeroAleatorio;
+}
+
+function busquedaLineal(array, elementoBuscado) {
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === elementoBuscado) {
+            return i; // Retorna el índice del elemento si se encuentra
+        }
+    }
+    return -1; // Retorna -1 si el elemento no se encuentra en el array
+}
+
+function busquedaBinariaIterativa(array, elementoBuscado) {
+    let inicio = 0;
+    let fin = array.length - 1;
+    while (inicio <= fin) {
+        const medio = Math.floor((inicio + fin) / 2);
+        if (array[medio] === elementoBuscado) {
+            return medio; // Retorna el índice si el elemento se encuentra en la posición medio
+        } else if (array[medio] < elementoBuscado) {
+            inicio = medio + 1; // Busca en la mitad derecha del array
+        } else {
+            fin = medio - 1; // Busca en la mitad izquierda del array
+        }
+    }
+    return -1; // Retorna -1 si el elemento no se encuentra en el array
+}
+
+function busquedaBinariaRecursiva(array, elementoBuscado, inicio = 0, fin = array.length - 1) {
+    if (inicio > fin) {
+        return -1; // Elemento no encontrado
+    }
+    const medio = Math.floor((inicio + fin) / 2);
+    if (array[medio] === elementoBuscado) {
+        return medio; // Elemento encontrado, devuelve el índice
+    } else if (array[medio] < elementoBuscado) {
+        return busquedaBinariaRecursiva(array, elementoBuscado, medio + 1, fin); // Busca en la mitad derecha del array
+    } else {
+        return busquedaBinariaRecursiva(array, elementoBuscado, inicio, medio - 1); // Busca en la mitad izquierda del array
+    }
+}
+
+</script>
+</body>
+</html>

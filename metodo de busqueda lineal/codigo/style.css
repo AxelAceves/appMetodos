@@ -1,0 +1,304 @@
+body {
+    background-color: #333;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+  }
+
+
+.header {
+  text-align: center;
+  padding: 1px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.5);
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  font-family: 'Arial', sans-serif;
+  font-size: 36px;
+  color: #333;
+  letter-spacing: 1.5px;
+}
+.header h3 {
+  font-family: 'Arial', sans-serif;
+  font-size: 20px;
+  color: #333;
+  letter-spacing: 1.5px;
+}
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        td, th {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        input[type="text"] {
+            width: 90%;
+            padding: 10px;
+            border: 1px solid #444;
+            background-color: #444;
+            color: #ddd;
+        }
+  
+  input::placeholder, textarea::placeholder {
+    color: #bbb;
+  }
+
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: #bbb;
+  }
+
+        button {
+    width: 100%;
+    padding: 15px;
+    background-color: #ddd;
+    color: black;
+    border: 1px solid #333;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 50px; /* Hace el borde circular */
+}
+
+button:hover {
+    background-color: #555;
+}
+
+
+        canvas {
+            width: 100% !important;
+            height: auto !important;
+            background-color: #fff;
+        }
+
+       
+
+            input[type="text"] {
+                font-size: 14px;
+            }
+
+            button {
+                font-size: 16px;
+            }
+        }
+         
+   
+   
+   
+  
+  
+ .cont {
+    display: flex;
+    flex-direction: column; /* Alinea los elementos en columna */
+    align-items: center; /* Centra los elementos horizontalmente */
+    background-color: transparent;
+    border-radius: 10px;
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 30px;
+    padding: 20px;
+    max-width: 100%; /* Se asegura que el contenedor no exceda su ancho máximo */
+    box-sizing: border-box;
+}
+
+.cont p {
+    text-align: left; /* Alinea el texto a la izquierda */
+    width: 100%; /* Asegura que el texto ocupe todo el ancho */
+    margin: 0 0 10px 0; /* Espacio entre el párrafo y el input */
+}
+
+/* Estilo para el contenedor de la tabla */
+.table-container {
+    width: 100%; /* Asegura que el contenedor de la tabla ocupe el ancho completo */
+    overflow-x: auto; /* Habilita el desplazamiento horizontal si la tabla es muy ancha */
+    margin-top: 20px; /* Espacio superior entre otros elementos y la tabla */
+}
+
+/* Asegura que la tabla no se desborde del contenedor */
+#historialTabla {
+    width: 100%; /* Ajusta la tabla para que ocupe el ancho completo del contenedor */
+    border-collapse: collapse; /* Evita el espaciado entre bordes de las celdas */
+}
+
+#historialTabla th, #historialTabla td {
+    padding: 10px;
+    text-align: center; /* Alinea el texto al centro */
+    border: 1px solid #ccc; /* Define bordes para las celdas */
+}
+
+#historialTabla th {
+    background-color: #333; /* Color de fondo para los encabezados */
+}
+
+    .separator {
+    height: 2px;
+    background-color: #ddd;
+    margin: 20px 0; /* Espaciado vertical */
+    width: 100%; /* Se asegura de que ocupe todo el ancho del contenedor */
+}
+
+
+/* Personalización del scrollbar */
+.table-container::-webkit-scrollbar {
+    height: 10px; /* Altura de la barra de desplazamiento horizontal */
+}
+
+.table-container::-webkit-scrollbar-track {
+    background-color: #ddd; /* Color de fondo del track (pista) */
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background-color: #333; /* Color del pulgar (scroll bar) */
+    border-radius: 10px; /* Bordes redondeados para el pulgar */
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Color más claro cuando el pulgar es hover */
+}
+
+
+ .menu {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #f0f0f0;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 50% 45% 0 0;
+            border: 1px solid #333;
+        }
+
+        .menu-item, .menu-item2 {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer; /* Cambia el cursor al pasar sobre el elemento */
+        }
+
+        .circle, .circle2, .circle3 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #333;
+            border: 2px solid #333;
+            font-size: 24px;
+            margin-bottom: 5px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .circle:hover, .circle2:hover, .circle3:hover {
+            transform: scale(1.1);
+            background-color: #fff;
+        }
+
+        .circle2 {
+            position: relative;
+            top: -20px;
+        }
+
+        .circle3 {
+            position: relative;
+            top: -30px;
+        }
+
+        .plus {
+            position: relative;
+        }
+
+        .triangle {
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 30px solid #ddd;
+            margin-bottom: 5px;
+        }
+
+        .plus span {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .menu-item span, .menu-item2 span {
+            font-size: 20px; /* Aumenta el tamaño de la fuente */
+            font-weight: bold; /* Hace el texto más grueso */
+            color: #333; /* Color del texto */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente moderna */
+            margin-top: 5px; /* Espacio entre el icono y el texto */
+            text-align: center; /* Centra el texto dentro del contenedor */
+        }
+
+        /* Estilo del modal */
+        .modal {
+            display: none; /* Oculto por defecto */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+            text-align: center;
+            position: relative;
+        }
+
+        .modal-content h2 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .modal-content p {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        .modal-content button {
+            margin: 5px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .modal-content button:hover {
+            background-color: #555;
+        }
+
+        .modal-content .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            cursor: pointer;
+        }
