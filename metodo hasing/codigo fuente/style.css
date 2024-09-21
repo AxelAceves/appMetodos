@@ -1,0 +1,357 @@
+body {
+    background-color: #333;
+    color: #bbb;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+  }
+
+  input, textarea, button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #444;
+    background-color: #444;
+    color: #bbb;
+    border-radius: 5px;
+  }
+
+  input::placeholder, textarea::placeholder {
+    color: #bbb;
+  }
+
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: #bbb;
+  }
+
+  button {
+    cursor: pointer;
+    background-color: #555;
+    transition: background-color 0.3s;
+  }
+
+  button:hover {
+    background-color: #666;
+  }
+
+  .separator {
+    margin: 20px 0;
+  }
+
+  
+
+  #listaEnlazada {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+  }
+
+  #listaEnlazada li {
+    background-color: #444;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  #listaEnlazada li:hover {
+    background-color: #555;
+  }
+
+  .rectangulo {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  .rectangulo button {
+    width: 48%;
+  }
+
+  .cuadro-informacion {
+    background-color: #444;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    color: #bbb;
+  }
+
+  n {
+    margin: 0 10px;
+  }
+
+  table {
+    color: #bbb;
+  }
+
+
+.header {
+  text-align: center;
+  padding: 1px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.5);
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  font-family: 'Arial', sans-serif;
+  font-size: 36px;
+  color: #333;
+  letter-spacing: 1.5px;
+}
+.header h3 {
+  font-family: 'Arial', sans-serif;
+  font-size: 20px;
+  color: #333;
+  letter-spacing: 1.5px;
+}
+
+.cont {
+  text-align: center;
+  background-color: transparent;
+  border-radius: 10px;
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.5);
+  margin-bottom: 30px;
+  padding: 20px;
+  max-width: 100%;
+  overflow-x: auto; /* Permitir scroll horizontal si es necesario */
+}
+
+table {
+  width: 100%; /* La tabla ocupará el 100% del contenedor */
+  border-collapse: collapse;
+  table-layout: fixed; /* Evitar que las celdas se desborden */
+  word-wrap: break-word; /* Romper el texto para que no desborde las celdas */
+}
+
+table th, table td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+  white-space: normal; /* Asegura que el texto dentro de las celdas se ajuste */
+}
+/* Contenedor que permitirá el desplazamiento horizontal */
+.table-responsive {
+  overflow-x: auto; /* Habilita el desplazamiento horizontal si es necesario */
+  width: 100%; /* Asegura que el contenedor ocupe todo el ancho disponible */
+  margin-top: 20px;
+}
+
+#tablaResultados {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #444;
+  color: #bbb;
+  min-width: 600px; /* Ancho mínimo de la tabla para evitar que sea muy pequeña */
+}
+
+#tablaResultados th, #tablaResultados td {
+  padding: 10px;
+  border: 1px solid #555;
+  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+  overflow: hidden; /* Oculta el contenido que se desborde */
+  text-overflow: ellipsis; /* Muestra "..." si el texto es demasiado largo */
+}
+
+#tablaResultados th {
+  background-color: #555;
+}
+
+#tablaResultados td {
+  word-wrap: break-word;
+  text-align: center;
+}
+
+#tablaResultados td, #tablaResultados th {
+  min-width: 150px; /* Establece un ancho mínimo para cada celda */
+  text-align: center;
+}
+
+/* Estilos personalizados para la barra de desplazamiento */
+.table-responsive::-webkit-scrollbar {
+  height: 10px; /* Altura de la barra de desplazamiento */
+}
+
+.table-responsive::-webkit-scrollbar-track {
+  background-color: #333; /* Color del fondo de la barra */
+  border-radius: 5px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+  background-color: #555; /* Color de la parte que se desplaza */
+  border-radius: 5px;
+  border: 2px solid #333; /* Añade un borde alrededor del 'thumb' */
+}
+
+/* Para navegadores basados en Firefox */
+.table-responsive {
+  scrollbar-width: thin; /* Define el grosor de la barra en Firefox */
+  scrollbar-color: #555 #333; /* Color del thumb y del track en Firefox */
+}
+input, textarea {
+  width: 100%; /* Los inputs y textarea ocuparán el 100% del ancho disponible */
+  max-width: 100%; /* Evita que se desborden del contenedor */
+  padding: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box; /* Asegura que el padding se incluya dentro del ancho */
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  resize: vertical; /* Permitir redimensionar solo verticalmente en textarea */
+}
+
+textarea {
+  height: 150px; /* Altura fija para el textarea */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+   .menu {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #f0f0f0;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 50% 45% 0 0;
+            border: 1px solid #333;
+        }
+
+        .menu-item, .menu-item2 {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer; /* Cambia el cursor al pasar sobre el elemento */
+        }
+
+        .circle, .circle2, .circle3 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #333;
+            border: 2px solid #333;
+            font-size: 24px;
+            margin-bottom: 5px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .circle:hover, .circle2:hover, .circle3:hover {
+            transform: scale(1.1);
+            background-color: #fff;
+        }
+
+        .circle2 {
+            position: relative;
+            top: -20px;
+        }
+
+        .circle3 {
+            position: relative;
+            top: -30px;
+        }
+
+        .plus {
+            position: relative;
+        }
+
+        .triangle {
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 30px solid #ddd;
+            margin-bottom: 5px;
+        }
+
+        .plus span {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .menu-item span, .menu-item2 span {
+            font-size: 20px; /* Aumenta el tamaño de la fuente */
+            font-weight: bold; /* Hace el texto más grueso */
+            color: #333; /* Color del texto */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente moderna */
+            margin-top: 5px; /* Espacio entre el icono y el texto */
+            text-align: center; /* Centra el texto dentro del contenedor */
+        }
+
+        /* Estilo del modal */
+        .modal {
+            display: none; /* Oculto por defecto */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+            text-align: center;
+            position: relative;
+        }
+
+        .modal-content h2 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .modal-content p {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        .modal-content button {
+            margin: 5px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .modal-content button:hover {
+            background-color: #555;
+        }
+
+        .modal-content .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            cursor: pointer;
+        }

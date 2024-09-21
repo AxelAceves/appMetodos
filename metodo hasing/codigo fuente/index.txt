@@ -1,0 +1,111 @@
+<html>
+<head>
+  <title>Encriptación y Desencriptación de Texto</title>
+  <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+ 
+  <div class="cont" >
+<div class="header">
+  <p><h3>Metodo Hasing</h3></p>
+</div>
+
+<input type="text" id="encriptacion" placeholder="Introduce un texto " onchange="encriptarTexto()">
+<p id="resultado"></p>
+  <div class="separator"></div>
+  
+  <button onclick="mostrarNumerosASCII()">Mostrar Números ordenados</button>
+<p id="resultadoNumeros"></p>
+    <div class="separator"></div>
+<button id="btnCopiarNumeros" onclick="copiarNumerosASCII()">Copiar Números</button>
+  
+    <div class="separator"></div>
+  
+  
+<textarea id="desencriptacion" placeholder="Introduce códigos ASCII separados por comas y espacios" oninput="mostrarLetrasCorrespondientes()"></textarea>
+    <div id="resultado2"></div>
+  <div class="separator"></div>
+  
+  <div class="rectangulo">
+  <button onclick="guardarEnTabla()">Guardar en Tabla</button>
+<n>-</n>
+  <button onclick="borrarDatos()">Borrar Todos Los Datos</button>
+</div>
+  
+  <div class="table-responsive">
+  <table id="tablaResultados" border="1">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Texto Original</th>
+        <th>Códigos ASCII</th>
+        <th>Números ASCII</th>
+        <th>Texto Desencriptado</th>
+      </tr>
+    </thead>
+    <tbody id="cuerpoTabla">
+    </tbody>
+  </table>
+  </div>
+  
+  <div class="rectangulo2">
+    <ol id="listaEnlazada"></ol>
+   <div class="cuadro-informacion"></div>
+  </div>
+  
+  </div>
+  
+  
+  
+      <div class="menu">
+        <div class="menu-item">
+            <div class="circle">
+                <i class="fas fa-home"></i>
+            </div>
+            <span>Inicio</span>
+        </div>
+        <div class="menu-item2">
+            <div class="circle2">
+                <i class="fas fa-circle"></i>
+            </div>
+            <span>Tools</span>
+        </div>
+        <div class="menu-item" id="openModal">
+            <div class="circle3">
+                <div class="triangle"></div>
+            </div>
+            <span>top</span>
+        </div>
+        <div class="menu-item2">
+            <div class="circle2">
+                <i class="fas fa-comments"></i>
+            </div>
+            <span>Chats</span>
+        </div>
+        <div class="menu-item">
+            <div class="circle">
+                <i class="fas fa-user"></i>
+            </div>
+            <span>Perfil</span>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h2>Crea ahora</h2>
+            <p>Selecciona una opción para continuar:</p>
+            <button id="createPost">Crear un post</button>
+            <button id="createParty">Crear una fiesta</button>
+        </div>
+    </div>
+
+<br></br>
+</body>
+</html>
