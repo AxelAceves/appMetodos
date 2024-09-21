@@ -24,5 +24,5 @@ Este proyecto proporciona una interfaz web para encriptar y desencriptar texto u
 
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/tu_usuario/appMetodos.git
+   git clone https://github.com/AxelAceves/appMetodos.git
 
